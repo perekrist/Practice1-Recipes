@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Recipe {
+class Recipe: Decodable {
     let uuid: String
     let name: String
-    let images: [String]
+    let images: [String]?
     let lastUpdated: Int?
     let description: String?
     let instructions: String?
     let difficulty: Int?
-    let similar: [Recipe]
+    let similar: [Recipe]?
     
     init(uuid: String,
         name: String,
@@ -36,4 +36,6 @@ struct Recipe {
         self.difficulty = difficulty
         self.similar = similar
     }
+    
+    
 }
