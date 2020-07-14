@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     var searchController: UISearchController!
+    let tableViewController = UITableViewController(style: .plain)
+    
+    var allItems = ["Firsrt", "Second", "Third"]
+    var cellIdentifier = "Cell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,9 @@ class ViewController: UIViewController {
         searchController.searchBar.layer.borderColor = .none
 
         navigationItem.searchController = searchController
+        
+        createTableView()
+        view.addSubview(tableViewController.tableView)
                 
         setUpConstrains()
     }
@@ -35,8 +42,11 @@ class ViewController: UIViewController {
         print("sortByTapped")
     }
     
-    
-
+    func createTableView() {
+        tableViewController.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableViewController.tableView.delegate = self
+        tableViewController.tableView.dataSource = self
+    }
 
 }
 
