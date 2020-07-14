@@ -14,6 +14,7 @@
 		CA21511F24BC5D210061D140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA21511D24BC5D210061D140 /* LaunchScreen.storyboard */; };
 		CA21512924BC84C10061D140 /* ViewController+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21512824BC84C10061D140 /* ViewController+Constrains.swift */; };
 		CA21512E24BD79840061D140 /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21512D24BD79840061D140 /* ViewController+TableView.swift */; };
+		CA21513024BD823C0061D140 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21512F24BD823C0061D140 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,7 @@
 		CA21511B24BC5D210061D140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA21511E24BC5D210061D140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA21512024BC5D210061D140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA21512824BC84C10061D140 /* ViewController+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Constrains.swift"; sourceTree = "<group>"; };
-		CA21512D24BD79840061D140 /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
+		CA21512F24BD823C0061D140 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +87,7 @@
 				CA21511B24BC5D210061D140 /* Assets.xcassets */,
 				CA21511D24BC5D210061D140 /* LaunchScreen.storyboard */,
 				CA21512024BC5D210061D140 /* Info.plist */,
+				CA21512F24BD823C0061D140 /* Recipe.swift */,
 			);
 			path = "Practice1-Recipes";
 			sourceTree = "<group>";
@@ -209,6 +210,8 @@
 				CA21511724BC5D180061D140 /* ViewController.swift in Sources */,
 				CA21512E24BD79840061D140 /* ViewController+TableView.swift in Sources */,
 				CA21511324BC5D180061D140 /* AppDelegate.swift in Sources */,
+				CA21511524BC5D180061D140 /* SceneDelegate.swift in Sources */,
+				CA21513024BD823C0061D140 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
