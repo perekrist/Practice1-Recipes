@@ -24,7 +24,7 @@ extension KodeAPI: TargetType {
     var path: String {
         switch self {
         case .recipes:
-            return "/resipes"
+            return "/recipes"
         }
     }
 

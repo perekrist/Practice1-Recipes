@@ -25,6 +25,7 @@ final class RecipesSearchViewController: UITableViewController, UISearchBarDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        getRecipes()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +78,14 @@ extension RecipesSearchViewController {
         setupNavigationBar()
         setupSearchBar()
         setupTableView()
+    }
+    
+    private func getRecipes() {
+        viewModel.getRecipes() { [weak self] in
+            guard let self = self else { return }
+            self.tableView.dataSource = self.viewModel.dataSource
+            self.tableView.reloadData()
+        }
     }
 
     private func setupEmptyStateView() -> UIView {

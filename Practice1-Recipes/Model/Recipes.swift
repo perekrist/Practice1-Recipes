@@ -9,5 +9,5 @@
 import Foundation
 
 class Recipes: Decodable {
-    let results: [Recipe]
+    let recipes: [Recipe]
 }

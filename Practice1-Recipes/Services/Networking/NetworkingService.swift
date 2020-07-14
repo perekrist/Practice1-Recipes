@@ -20,13 +20,13 @@ class NetworkingService {
 
 extension NetworkingService {
 
-    func fetchPodcasts(completionHandler: @escaping ([Recipe]) -> Void) {
+    func getRecipes(completionHandler: @escaping ([Recipe]) -> Void) {
         provider?.request(.recipes) { result in
             switch result {
             case .success(let response):
                 do {
                     let searchResult = try response.map(Recipes.self)
-                    completionHandler(searchResult.results)
+                    completionHandler(searchResult.recipes)
                 } catch let decodingError {
                     print("Failed to decode:", decodingError)
                 }

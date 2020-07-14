@@ -11,12 +11,16 @@
 		CA21511324BC5D180061D140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21511224BC5D180061D140 /* AppDelegate.swift */; };
 		CA21511C24BC5D210061D140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA21511B24BC5D210061D140 /* Assets.xcassets */; };
 		CA21511F24BC5D210061D140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA21511D24BC5D210061D140 /* LaunchScreen.storyboard */; };
-		CA21512924BC84C10061D140 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		CA21512E24BD79840061D140 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		CA21513024BD823C0061D140 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21512F24BD823C0061D140 /* Recipe.swift */; };
 		CA21514224BDE3140061D140 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514124BDE3140061D140 /* NetworkingService.swift */; };
 		CA21514424BDE4630061D140 /* KodeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514324BDE4630061D140 /* KodeAPI.swift */; };
 		CA21514624BDE75B0061D140 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514524BDE75B0061D140 /* Recipes.swift */; };
+		CA21514C24BDE9D80061D140 /* RecipeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514724BDE9D80061D140 /* RecipeCellViewModel.swift */; };
+		CA21514D24BDE9D80061D140 /* RecipesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514824BDE9D80061D140 /* RecipesSearchViewController.swift */; };
+		CA21514E24BDE9D80061D140 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514924BDE9D80061D140 /* TableViewDataSource.swift */; };
+		CA21514F24BDE9D80061D140 /* RecipesSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514A24BDE9D80061D140 /* RecipesSearchViewModel.swift */; };
+		CA21515024BDE9D80061D140 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514B24BDE9D80061D140 /* RecipeCell.swift */; };
+		CA21515A24BE05130061D140 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21515924BE05130061D140 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,12 @@
 		CA21514124BDE3140061D140 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		CA21514324BDE4630061D140 /* KodeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodeAPI.swift; sourceTree = "<group>"; };
 		CA21514524BDE75B0061D140 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
+		CA21514724BDE9D80061D140 /* RecipeCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModel.swift; sourceTree = "<group>"; };
+		CA21514824BDE9D80061D140 /* RecipesSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesSearchViewController.swift; sourceTree = "<group>"; };
+		CA21514924BDE9D80061D140 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		CA21514A24BDE9D80061D140 /* RecipesSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesSearchViewModel.swift; sourceTree = "<group>"; };
+		CA21514B24BDE9D80061D140 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		CA21515924BE05130061D140 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		F53FB5770F3A11EA27912264 /* Pods-Practice1-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice1-Recipes.release.xcconfig"; path = "Target Support Files/Pods-Practice1-Recipes/Pods-Practice1-Recipes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,21 +94,86 @@
 		CA21511124BC5D180061D140 /* Practice1-Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				CA21515824BE04FD0061D140 /* Extensions */,
+				CA21515724BDEAA70061D140 /* ViewControllers */,
+				CA21515424BDEA400061D140 /* Services */,
+				CA21515324BDEA160061D140 /* ViewModel */,
+				CA21515224BDEA100061D140 /* View */,
+				CA21515124BDEA0A0061D140 /* Model */,
 				CA21511B24BC5D210061D140 /* Assets.xcassets */,
 				CA21511D24BC5D210061D140 /* LaunchScreen.storyboard */,
 				CA21512024BC5D210061D140 /* Info.plist */,
-				CA21514124BDE3140061D140 /* NetworkingService.swift */,
-				CA21514324BDE4630061D140 /* KodeAPI.swift */,
-				CA21514524BDE75B0061D140 /* Recipes.swift */,
-				CA21512F24BD823C0061D140 /* Recipe.swift */,
-				CA21513924BDCA890061D140 /* RecipeCellViewModel.swift */,
-				CA21513724BD8DDA0061D140 /* RecipeCell.swift */,
-				CA21513B24BDD35F0061D140 /* RecipesSearchViewModel.swift */,
-				CA21513D24BDD45F0061D140 /* TableViewDataSource.swift */,
-				CA21513F24BDDAAC0061D140 /* RecipesSearchViewController.swift */,
 				CA21511224BC5D180061D140 /* AppDelegate.swift */,
 			);
 			path = "Practice1-Recipes";
+			sourceTree = "<group>";
+		};
+		CA21515124BDEA0A0061D140 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CA21514524BDE75B0061D140 /* Recipes.swift */,
+				CA21512F24BD823C0061D140 /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA21515224BDEA100061D140 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA21514B24BDE9D80061D140 /* RecipeCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA21515324BDEA160061D140 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA21514A24BDE9D80061D140 /* RecipesSearchViewModel.swift */,
+				CA21514724BDE9D80061D140 /* RecipeCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CA21515424BDEA400061D140 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA21515624BDEA670061D140 /* DataSources */,
+				CA21515524BDEA530061D140 /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CA21515524BDEA530061D140 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CA21514124BDE3140061D140 /* NetworkingService.swift */,
+				CA21514324BDE4630061D140 /* KodeAPI.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CA21515624BDEA670061D140 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				CA21514924BDE9D80061D140 /* TableViewDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		CA21515724BDEAA70061D140 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA21514824BDE9D80061D140 /* RecipesSearchViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA21515824BE04FD0061D140 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA21515924BE05130061D140 /* UIImageView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,12 +290,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA21511724BC5D180061D140 /* ViewController.swift in Sources */,
 				CA21514424BDE4630061D140 /* KodeAPI.swift in Sources */,
+				CA21514D24BDE9D80061D140 /* RecipesSearchViewController.swift in Sources */,
+				CA21515A24BE05130061D140 /* UIImageView+Extensions.swift in Sources */,
+				CA21514F24BDE9D80061D140 /* RecipesSearchViewModel.swift in Sources */,
+				CA21514E24BDE9D80061D140 /* TableViewDataSource.swift in Sources */,
 				CA21511324BC5D180061D140 /* AppDelegate.swift in Sources */,
+				CA21515024BDE9D80061D140 /* RecipeCell.swift in Sources */,
 				CA21514624BDE75B0061D140 /* Recipes.swift in Sources */,
-				CA21511524BC5D180061D140 /* SceneDelegate.swift in Sources */,
 				CA21514224BDE3140061D140 /* NetworkingService.swift in Sources */,
+				CA21514C24BDE9D80061D140 /* RecipeCellViewModel.swift in Sources */,
 				CA21513024BD823C0061D140 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

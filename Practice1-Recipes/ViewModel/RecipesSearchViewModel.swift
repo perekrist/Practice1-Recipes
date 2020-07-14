@@ -13,9 +13,21 @@ class RecipesSearchViewModel {
     var recipes = [Recipe]()
     var dataSource: TableViewDataSource<Recipe, RecipeCell>?
     
+    private let networkingService = NetworkingService()
+    
 }
 
 extension RecipesSearchViewModel {
+    
+    func getRecipes(completion: @escaping () -> Void) {
+        self.networkingService.getRecipes() { [weak self] recipes in
+            guard let self = self else { return }
+            self.recipesDidLoad(recipes)
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+    }
 
     func recipe(for indexPath: IndexPath) -> Recipe {
         return recipes[indexPath.row]

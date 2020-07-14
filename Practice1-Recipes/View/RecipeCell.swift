@@ -33,6 +33,9 @@ extension RecipeCell {
         recipeNameLabel.text = recipe?.name
         recipeDescriptionLabel.text = recipe?.description
         recipeLastUpdatedLabel.text = "\(recipe?.lastUpdated ?? 0)"
+        
+        recipeImageView.setImage(from: self.viewModel?.recipeImageURL)
+
 
         setupViews()
         setNeedsLayout()
@@ -45,25 +48,30 @@ extension RecipeCell {
     }
 
     private func setupLabels() {
-        recipeNameLabel.numberOfLines = 0
-        recipeNameLabel.font = .boldSystemFont(ofSize: 17)
+        recipeNameLabel.numberOfLines = 2
+        recipeNameLabel.font = .boldSystemFont(ofSize: 22)
+        recipeLastUpdatedLabel.textColor = UIColor(white: 0.5, alpha: 1.0)
         
-        recipeDescriptionLabel.numberOfLines = 0
-        recipeDescriptionLabel.font = .systemFont(ofSize: 15)
+        recipeDescriptionLabel.numberOfLines = 2
+        recipeDescriptionLabel.font = .systemFont(ofSize: 13)
+        recipeLastUpdatedLabel.textColor = UIColor(white: 0.5, alpha: 1.0)
         
         recipeLastUpdatedLabel.textColor = UIColor(white: 0.5, alpha: 1.0)
-        recipeLastUpdatedLabel.font = .systemFont(ofSize: 15)
+        recipeLastUpdatedLabel.font = .systemFont(ofSize: 13)
     }
 
     private func setupLayout() {
         self.addSubview(recipeImageView)
-        recipeImageView.contentMode = .scaleAspectFit
+        recipeImageView.contentMode = .scaleAspectFill
         recipeImageView.snp.makeConstraints { make in
-            make.height.width.equalTo(100)
-            make.leading.equalTo(self.snp.leadingMargin)
+            make.height.equalTo(112)
+            make.width.equalTo(204)
+            make.right.equalTo(self).offset(50)
+            make.trailing.equalTo(self.snp.trailingMargin)
             make.top.equalTo(self.snp.topMargin)
             make.bottom.equalTo(self.snp.bottomMargin)
         }
+        recipeImageView.layer.cornerRadius = 15.0
 
         let stackView = UIStackView(arrangedSubviews: [recipeNameLabel, recipeDescriptionLabel, recipeLastUpdatedLabel])
         stackView.spacing = 4
@@ -71,8 +79,8 @@ extension RecipeCell {
         self.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.trailing.equalTo(self.snp.trailingMargin)
-            make.leading.equalTo(recipeImageView.snp.trailing).offset(12)
+            make.leading.equalTo(self.snp.leadingMargin)
+            make.trailing.equalTo(recipeImageView.snp.leading).offset(12)
         }
     }
 
