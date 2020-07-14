@@ -8,4 +8,5 @@ target 'Practice1-Recipes' do
   # Pods for Practice1-Recipes
   pod 'Alamofire'
   pod 'Kingfisher', '~> 5.0'
+  pod 'Moya', '~> 14.0'
 end

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Recipe: Codable {
+class Recipe: Decodable {
     let uuid: String
     let name: String
     let images: [String]?
@@ -36,8 +36,6 @@ struct Recipe: Codable {
         self.difficulty = difficulty
         self.similar = similar
     }
-}
-
-struct Recipes: Codable {
-    let recipes: [Recipe]
+    
+    
 }

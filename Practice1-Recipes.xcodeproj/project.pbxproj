@@ -15,7 +15,9 @@
 		CA21511C24BC5D210061D140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA21511B24BC5D210061D140 /* Assets.xcassets */; };
 		CA21511F24BC5D210061D140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA21511D24BC5D210061D140 /* LaunchScreen.storyboard */; };
 		CA21513024BD823C0061D140 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21512F24BD823C0061D140 /* Recipe.swift */; };
-		CA21513224BD86CA0061D140 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21513124BD86CA0061D140 /* RecipeViewModel.swift */; };
+		CA21514224BDE3140061D140 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514124BDE3140061D140 /* NetworkingService.swift */; };
+		CA21514424BDE4630061D140 /* KodeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514324BDE4630061D140 /* KodeAPI.swift */; };
+		CA21514624BDE75B0061D140 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514524BDE75B0061D140 /* Recipes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +32,9 @@
 		CA21511E24BC5D210061D140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA21512024BC5D210061D140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA21512F24BD823C0061D140 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		CA21513124BD86CA0061D140 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		CA21514124BDE3140061D140 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		CA21514324BDE4630061D140 /* KodeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodeAPI.swift; sourceTree = "<group>"; };
+		CA21514524BDE75B0061D140 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		F53FB5770F3A11EA27912264 /* Pods-Practice1-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice1-Recipes.release.xcconfig"; path = "Target Support Files/Pods-Practice1-Recipes/Pods-Practice1-Recipes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,12 +91,14 @@
 				CA21511224BC5D180061D140 /* AppDelegate.swift */,
 				CA21511424BC5D180061D140 /* SceneDelegate.swift */,
 				CA21511624BC5D180061D140 /* ViewController.swift */,
-				CA21512F24BD823C0061D140 /* Recipe.swift */,
 				CA21511824BC5D180061D140 /* Main.storyboard */,
 				CA21511B24BC5D210061D140 /* Assets.xcassets */,
 				CA21511D24BC5D210061D140 /* LaunchScreen.storyboard */,
 				CA21512024BC5D210061D140 /* Info.plist */,
-				CA21513124BD86CA0061D140 /* RecipeViewModel.swift */,
+				CA21514124BDE3140061D140 /* NetworkingService.swift */,
+				CA21514324BDE4630061D140 /* KodeAPI.swift */,
+				CA21514524BDE75B0061D140 /* Recipes.swift */,
+				CA21512F24BD823C0061D140 /* Recipe.swift */,
 			);
 			path = "Practice1-Recipes";
 			sourceTree = "<group>";
@@ -213,9 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA21511724BC5D180061D140 /* ViewController.swift in Sources */,
+				CA21514424BDE4630061D140 /* KodeAPI.swift in Sources */,
 				CA21511324BC5D180061D140 /* AppDelegate.swift in Sources */,
+				CA21514624BDE75B0061D140 /* Recipes.swift in Sources */,
 				CA21511524BC5D180061D140 /* SceneDelegate.swift in Sources */,
-				CA21513224BD86CA0061D140 /* RecipeViewModel.swift in Sources */,
+				CA21514224BDE3140061D140 /* NetworkingService.swift in Sources */,
 				CA21513024BD823C0061D140 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
