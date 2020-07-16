@@ -50,13 +50,13 @@ extension RecipeCell {
     private func setupLabels() {
         recipeNameLabel.numberOfLines = 2
         recipeNameLabel.font = .boldSystemFont(ofSize: 22)
-        recipeLastUpdatedLabel.textColor = UIColor(white: 0.5, alpha: 1.0)
+        recipeLastUpdatedLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
         
         recipeDescriptionLabel.numberOfLines = 2
         recipeDescriptionLabel.font = .systemFont(ofSize: 13)
-        recipeLastUpdatedLabel.textColor = UIColor(white: 0.5, alpha: 1.0)
+        recipeLastUpdatedLabel.textColor = #colorLiteral(red: 0.6117647059, green: 0.6117647059, blue: 0.6117647059, alpha: 1)
         
-        recipeLastUpdatedLabel.textColor = UIColor(white: 0.5, alpha: 1.0)
+        recipeLastUpdatedLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
         recipeLastUpdatedLabel.font = .systemFont(ofSize: 13)
     }
 

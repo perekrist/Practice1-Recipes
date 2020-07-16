@@ -21,6 +21,10 @@
 		CA21514F24BDE9D80061D140 /* RecipesSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514A24BDE9D80061D140 /* RecipesSearchViewModel.swift */; };
 		CA21515024BDE9D80061D140 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21514B24BDE9D80061D140 /* RecipeCell.swift */; };
 		CA21515A24BE05130061D140 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21515924BE05130061D140 /* UIImageView+Extensions.swift */; };
+		CA38791B24C0144B00379874 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38791A24C0144B00379874 /* RecipeViewModel.swift */; };
+		CA38791D24C014CC00379874 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38791C24C014CC00379874 /* RecipeViewController.swift */; };
+		CA38791F24C02C5F00379874 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38791E24C02C5F00379874 /* RecipeView.swift */; };
+		CA38792124C04DAA00379874 /* RecipeDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38792024C04DAA00379874 /* RecipeDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		CA21514A24BDE9D80061D140 /* RecipesSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesSearchViewModel.swift; sourceTree = "<group>"; };
 		CA21514B24BDE9D80061D140 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		CA21515924BE05130061D140 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		CA38791A24C0144B00379874 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		CA38791C24C014CC00379874 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		CA38791E24C02C5F00379874 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		CA38792024C04DAA00379874 /* RecipeDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescription.swift; sourceTree = "<group>"; };
 		F53FB5770F3A11EA27912264 /* Pods-Practice1-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice1-Recipes.release.xcconfig"; path = "Target Support Files/Pods-Practice1-Recipes/Pods-Practice1-Recipes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +121,7 @@
 			children = (
 				CA21514524BDE75B0061D140 /* Recipes.swift */,
 				CA21512F24BD823C0061D140 /* Recipe.swift */,
+				CA38792024C04DAA00379874 /* RecipeDescription.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				CA21514B24BDE9D80061D140 /* RecipeCell.swift */,
+				CA38791E24C02C5F00379874 /* RecipeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,6 +140,7 @@
 			children = (
 				CA21514A24BDE9D80061D140 /* RecipesSearchViewModel.swift */,
 				CA21514724BDE9D80061D140 /* RecipeCellViewModel.swift */,
+				CA38791A24C0144B00379874 /* RecipeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -164,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				CA21514824BDE9D80061D140 /* RecipesSearchViewController.swift */,
+				CA38791C24C014CC00379874 /* RecipeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -294,10 +306,14 @@
 				CA21514D24BDE9D80061D140 /* RecipesSearchViewController.swift in Sources */,
 				CA21515A24BE05130061D140 /* UIImageView+Extensions.swift in Sources */,
 				CA21514F24BDE9D80061D140 /* RecipesSearchViewModel.swift in Sources */,
+				CA38791B24C0144B00379874 /* RecipeViewModel.swift in Sources */,
 				CA21514E24BDE9D80061D140 /* TableViewDataSource.swift in Sources */,
 				CA21511324BC5D180061D140 /* AppDelegate.swift in Sources */,
+				CA38791D24C014CC00379874 /* RecipeViewController.swift in Sources */,
+				CA38792124C04DAA00379874 /* RecipeDescription.swift in Sources */,
 				CA21515024BDE9D80061D140 /* RecipeCell.swift in Sources */,
 				CA21514624BDE75B0061D140 /* Recipes.swift in Sources */,
+				CA38791F24C02C5F00379874 /* RecipeView.swift in Sources */,
 				CA21514224BDE3140061D140 /* NetworkingService.swift in Sources */,
 				CA21514C24BDE9D80061D140 /* RecipeCellViewModel.swift in Sources */,
 				CA21513024BD823C0061D140 /* Recipe.swift in Sources */,

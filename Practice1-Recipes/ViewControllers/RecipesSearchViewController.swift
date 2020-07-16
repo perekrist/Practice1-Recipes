@@ -46,7 +46,6 @@ extension RecipesSearchViewController {
         return Sizes.cellHeight
     }
 
-    // MARK: Header Setup
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let emptyStateView = setupEmptyStateView()
         return emptyStateView
@@ -66,11 +65,12 @@ extension RecipesSearchViewController {
     // MARK: Navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = viewModel.recipe(for: indexPath)
-        print(recipe.name)
+        let recipeViewModel  = RecipeViewModel(uuid: recipe.uuid)
+        let recipeController = RecipeViewController(viewModel: recipeViewModel)
+        navigationController?.pushViewController(recipeController, animated: true)
     }
 }
 
-// MARK: - Setup
 extension RecipesSearchViewController {
 
     fileprivate func initialSetup() {
@@ -121,7 +121,7 @@ extension RecipesSearchViewController {
 private extension RecipesSearchViewController {
 
     enum Sizes {
-        static let cellHeight: CGFloat = 132
+        static let cellHeight: CGFloat = 172
         static let footerHeight: CGFloat = 200
 
         static func headerHeight(for tableView: UITableView) -> CGFloat {

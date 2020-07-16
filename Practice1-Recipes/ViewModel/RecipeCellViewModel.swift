@@ -12,19 +12,6 @@ class RecipeCellViewModel {
     
     var recipe: Recipe?
     
-    
-    var recipeImageURLs: [URL] {
-        var urls: [URL] = []
-        for i in 0 ..< (recipe?.images?.count ?? 0) {
-            guard let url = URL(string: recipe?.images![i] ?? "") else {
-                preconditionFailure("Failed to load image URL.")
-            }
-            urls.append(url)
-        }
-        
-        return urls
-    }
-    
     var recipeImageURL: URL {
         guard let url = URL(string: recipe?.images![0] ?? "") else {
             preconditionFailure("Failed to load image URL.")
@@ -32,9 +19,6 @@ class RecipeCellViewModel {
         
         return url
     }
-    
-    
-    
     
     init(recipe: Recipe) {
         self.recipe = recipe

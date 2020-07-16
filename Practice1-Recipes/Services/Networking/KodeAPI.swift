@@ -10,6 +10,7 @@ import Moya
 
 enum KodeAPI {
     case recipes
+    case recipeDetails(uuid: String)
 }
 
 extension KodeAPI: TargetType {
@@ -25,6 +26,8 @@ extension KodeAPI: TargetType {
         switch self {
         case .recipes:
             return "/recipes"
+        case .recipeDetails(let uuid):
+            return "/recipes/\(uuid)"
         }
     }
 
@@ -39,7 +42,9 @@ extension KodeAPI: TargetType {
     var task: Task {
         switch self {
         case .recipes:
-            return .requestParameters(parameters: [:], encoding: URLEncoding.default)
+            return .requestPlain
+        case .recipeDetails:
+            return .requestPlain
         }
     }
 

@@ -33,7 +33,7 @@ extension RecipesSearchViewModel {
         return recipes[indexPath.row]
     }
 
-    fileprivate func recipesDidLoad(_ recipes: [Recipe]) {
+    private func recipesDidLoad(_ recipes: [Recipe]) {
         self.recipes = recipes
         dataSource = .make(for: recipes)
     }

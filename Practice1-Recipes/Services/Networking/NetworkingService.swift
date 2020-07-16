@@ -36,5 +36,22 @@ extension NetworkingService {
             }
         }
     }
+    
+    func getRecipeDetails(uuid: String, completionHandler: @escaping (RecipeDescription) -> Void) {
+        provider?.request(.recipeDetails(uuid: uuid)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let searchResult = try response.map(RecipeDescription.self)
+                    completionHandler(searchResult)
+                } catch let decodingError {
+                    print("Failed to decode:", decodingError)
+                }
+
+            case .failure(let error):
+                print(error.errorDescription ?? "")
+            }
+        }
+    }
 
 }
