@@ -21,6 +21,8 @@ class RecipeView: UIStackView {
     private lazy var difficultyLabel = UILabel()
     private lazy var instructionLabel = UILabel()
     private lazy var similarLabel = UILabel()
+    private lazy var difficultyImageView = UIImageView()
+    private lazy var difficultyStackView = UIStackView()
     
     override func didMoveToSuperview() {
         setupEpisodeImageView()
@@ -40,27 +42,32 @@ extension RecipeView {
             
             self.recipeNameLabel.text = recipe?.recipe.name
             self.recipeDescriptionLabel.text = recipe?.recipe.description
-            self.recipeInstructionLabel.text = recipe?.recipe.instructions
+            self.recipeInstructionLabel.text = viewModel.filterHTMLLineBreaks(text: recipe?.recipe.instructions ?? "")
             
             self.recipeImageView.setImage(from: self.viewModel?.recipeImageURLs[0])
-                        
+            
+            self.difficultyStackView.axis = .horizontal
+            for i in 0 ..< 5 {
+                if(i < (recipe?.recipe.difficulty)!) {
+                    self.difficultyImageView.image = #imageLiteral(resourceName: "star")
+                } else {
+                    self.difficultyImageView.image = #imageLiteral(resourceName: "star").alpha(0.3)
+                }
+                self.difficultyStackView.addSubview(self.difficultyImageView)
+            }
         }
-        
         setNeedsLayout()
-        
-        
     }
     
     private func setupLayout() {
         self.axis = .vertical
         self.spacing = 5
         
-        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel]
+        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyStackView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel]
         arrangedSubviews.forEach { self.addArrangedSubview($0) }
     }
     
     private func setupEpisodeImageView() {
-        recipeImageView.clipsToBounds = true
         recipeImageView.snp.makeConstraints {
             $0.width.equalTo(recipeImageView.snp.height).multipliedBy(1/1)
         }
@@ -70,6 +77,7 @@ extension RecipeView {
         recipeNameLabel.font = .boldSystemFont(ofSize: 28)
         recipeNameLabel.textAlignment = .left
         recipeNameLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
+        recipeNameLabel.numberOfLines = 0
         recipeNameLabel.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(20)
         }
@@ -77,7 +85,16 @@ extension RecipeView {
         recipeDescriptionLabel.font = .systemFont(ofSize: 13)
         recipeDescriptionLabel.textAlignment = .left
         recipeDescriptionLabel.textColor = #colorLiteral(red: 0.6117647059, green: 0.6117647059, blue: 0.6117647059, alpha: 1)
+        recipeDescriptionLabel.numberOfLines = 0
         recipeDescriptionLabel.snp.makeConstraints {
+            $0.height.greaterThanOrEqualTo(20)
+        }
+        
+        recipeInstructionLabel.font = .systemFont(ofSize: 13)
+        recipeInstructionLabel.textAlignment = .left
+        recipeInstructionLabel.textColor = #colorLiteral(red: 0.6117647059, green: 0.6117647059, blue: 0.6117647059, alpha: 1)
+        recipeInstructionLabel.numberOfLines = 0
+        recipeInstructionLabel.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(20)
         }
         
@@ -109,3 +126,5 @@ extension RecipeView {
     }
     
 }
+
+

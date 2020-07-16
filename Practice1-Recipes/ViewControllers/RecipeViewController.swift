@@ -45,7 +45,15 @@ extension RecipeViewController {
     }
 
     private func setupLayout() {
-        view.addSubview(recipeView)
+        let scrollView = UIScrollView()
+        scrollView.addSubview(recipeView)
+        recipeView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.top.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
+            make.bottom.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)
+        }
         recipeView.snp.makeConstraints { make in
             make.top.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
             make.bottom.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)

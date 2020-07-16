@@ -39,11 +39,17 @@ extension RecipeViewModel {
         self.networkingService.getRecipeDetails(uuid: uuid) { [weak self] recipe in
             guard let self = self else { return }
             self.recipe = recipe
-            print(recipe.recipe.name)
             DispatchQueue.main.async {
                 completion()
             }
         }
+    }
+    
+    func filterHTMLLineBreaks(text: String) -> String {
+        if text.contains("<br>") {
+            return text.replacingOccurrences(of: "<br>", with: "\n", options: .literal, range: nil)
+        }
+        return text
     }
 
 }
