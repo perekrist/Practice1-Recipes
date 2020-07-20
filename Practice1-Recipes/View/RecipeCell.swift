@@ -29,10 +29,14 @@ extension RecipeCell {
     func setup(with viewModel: RecipeCellViewModel) {
         self.viewModel = viewModel
         let recipe = viewModel.recipe
+        
+        let date = Date(timeIntervalSince1970: TimeInterval((recipe?.lastUpdated)!))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
 
         recipeNameLabel.text = recipe?.name
         recipeDescriptionLabel.text = recipe?.description
-        recipeLastUpdatedLabel.text = "\(recipe?.lastUpdated ?? 0)"
+        recipeLastUpdatedLabel.text = dateFormatter.string(from: date)
         
         recipeImageView.setImage(from: self.viewModel?.recipeImageURL)
 
