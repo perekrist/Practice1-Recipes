@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RecipesSearchViewController: UITableViewController, UISearchBarDelegate {
+final class RecipesSearchViewController: UITableViewController {
 
     private var viewModel: RecipesSearchViewModel
     private lazy var searchController = UISearchController(searchResultsController: nil)
@@ -21,7 +21,7 @@ final class RecipesSearchViewController: UITableViewController, UISearchBarDeleg
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -115,10 +115,37 @@ extension RecipesSearchViewController {
         tableView.dataSource = viewModel.dataSource
         tableView.tableFooterView = UIView()
     }
+    
+    func searchRecipes(with searchText: String) {
+        viewModel.deleteRecipes()
+        tableView.reloadData()
+
+        guard !searchText.isEmpty else { return }
+        viewModel.searchRecipes(with: searchText) { [weak self] in
+            guard let self = self else { return }
+            self.tableView.dataSource = self.viewModel.dataSource
+            self.tableView.reloadData()
+        }
+    }
 
 }
 
-private extension RecipesSearchViewController {
+extension RecipesSearchViewController: UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchRecipes(with: searchText)
+        
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.deleteRecipes()
+        self.tableView.dataSource = self.viewModel.dataSource
+        tableView.reloadData()
+    }
+
+}
+
+extension RecipesSearchViewController {
 
     enum Sizes {
         static let cellHeight: CGFloat = 172
