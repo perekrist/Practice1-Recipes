@@ -39,7 +39,17 @@ extension RecipesSearchViewModel {
                 recipe.instructions!.lowercased().contains(query.lowercased()) ||
                 recipe.description?.lowercased().contains(query.lowercased()) ?? false)
         }
-        print(filteredRecipes)
+        dataSource = .make(for: filteredRecipes)
+        completion()
+    }
+    
+    func sortRecipes(sortingType: SortingType, completion: @escaping () -> Void) {
+        switch sortingType {
+        case .name:
+            filteredRecipes = recipes.sorted(by: { $0.name < $1.name })
+        case .updated:
+            filteredRecipes = recipes.sorted(by: { $0.lastUpdated! < $1.lastUpdated! })
+        }
         dataSource = .make(for: filteredRecipes)
         completion()
     }
@@ -58,4 +68,10 @@ extension RecipesSearchViewModel {
         dataSource = .make(for: recipes)
     }
     
+}
+
+extension RecipesSearchViewModel {
+    enum SortingType {
+        case name, updated
+    }
 }

@@ -25,7 +25,6 @@ final class RecipesSearchViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-        getRecipes()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +33,7 @@ final class RecipesSearchViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         super.viewDidAppear(animated)
     }
 
@@ -73,11 +72,12 @@ extension RecipesSearchViewController {
 
 extension RecipesSearchViewController {
 
-    fileprivate func initialSetup() {
+    private func initialSetup() {
         view.backgroundColor = .white
         setupNavigationBar()
         setupSearchBar()
         setupTableView()
+        getRecipes()
     }
     
     private func getRecipes() {
@@ -100,6 +100,8 @@ extension RecipesSearchViewController {
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
         title = "Recipes"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by", style: .plain, target: self, action: #selector(sortRecipes))
+
     }
 
     private func setupSearchBar() {
@@ -126,6 +128,31 @@ extension RecipesSearchViewController {
             self.tableView.dataSource = self.viewModel.dataSource
             self.tableView.reloadData()
         }
+    }
+    
+    @objc func sortRecipes() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Sort by Name", style: .default, handler: { (UIAlertAction) in
+            self.viewModel.deleteRecipes()
+            self.tableView.reloadData()
+            self.viewModel.sortRecipes(sortingType: RecipesSearchViewModel.SortingType.name, completion: {
+                self.tableView.dataSource = self.viewModel.dataSource
+                self.tableView.reloadData()
+            })
+        }))
+
+        alert.addAction(UIAlertAction(title: "Sort by Date", style: .default, handler: { (UIAlertAction) in
+            self.viewModel.deleteRecipes()
+            self.tableView.reloadData()
+            self.viewModel.sortRecipes(sortingType: RecipesSearchViewModel.SortingType.updated, completion: {
+                self.tableView.dataSource = self.viewModel.dataSource
+                self.tableView.reloadData()
+            })
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        self.present(alert, animated: true)
     }
 
 }
