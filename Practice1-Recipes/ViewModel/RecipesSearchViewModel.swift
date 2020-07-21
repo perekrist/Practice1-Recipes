@@ -60,7 +60,7 @@ extension RecipesSearchViewModel {
     }
     
     func recipe(for indexPath: IndexPath) -> Recipe {
-        return recipes[indexPath.row]
+        return (dataSource?.models[indexPath.row])!
     }
     
     private func recipesDidLoad(_ recipes: [Recipe]) {

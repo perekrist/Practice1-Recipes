@@ -15,10 +15,10 @@ class RecipeViewModel {
     var recipe: RecipeDescription?
     let uuid: String
     
-    var recipeImageURLs: [URL] {
-        var urls: [URL] = []
+    var recipeImageURLs: [String] {
+        var urls: [String] = []
         for i in 0 ..< (recipe?.recipe.images?.count ?? 0) {
-            guard let url = URL(string: recipe?.recipe.images![i] ?? "") else {
+            guard let url = recipe?.recipe.images![i] else {
                 preconditionFailure("Failed to load image URL.")
             }
             urls.append(url)

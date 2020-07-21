@@ -10,5 +10,5 @@ target 'Practice1-Recipes' do
   pod 'Kingfisher', '~> 5.0'
   pod 'Moya', '~> 14.0'
   pod 'SnapKit', '~> 5.0.0'
-
+  pod 'Auk'
 end

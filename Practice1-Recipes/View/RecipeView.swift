@@ -8,12 +8,13 @@
 
 
 import UIKit
+import Auk
 
-class RecipeView: UIStackView {
+class RecipeView: UIScrollView {
     
     var viewModel: RecipeViewModel?
     
-    private lazy var recipeImageView = UIImageView()
+    private lazy var recipeImageView = UIScrollView()
     private lazy var recipeNameLabel = UILabel()
     private lazy var recipeDescriptionLabel = UILabel()
     private lazy var recipeInstructionLabel = UILabel()
@@ -43,8 +44,13 @@ extension RecipeView {
             self.recipeNameLabel.text = recipe?.recipe.name
             self.recipeDescriptionLabel.text = recipe?.recipe.description
             self.recipeInstructionLabel.text = viewModel.filterHTMLLineBreaks(text: recipe?.recipe.instructions ?? "")
-            
-            self.recipeImageView.setImage(from: self.viewModel?.recipeImageURLs[0])
+                        
+            for i in 0 ..< (self.viewModel?.recipeImageURLs.count)! {
+                if i < 4 {
+                    let image = self.viewModel?.recipeImageURLs[i]
+                    self.recipeImageView.auk.show(url: image!)
+                }
+            }
             
             self.difficultyStackView.axis = .horizontal
             for i in 0 ..< 5 {
@@ -60,11 +66,14 @@ extension RecipeView {
     }
     
     private func setupLayout() {
-        self.axis = .vertical
-        self.spacing = 5
         
         let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyStackView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel]
-        arrangedSubviews.forEach { self.addArrangedSubview($0) }
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+        self.addSubview(stackView)
+        
+        stackView.snp.makeConstraints { (make) in
+            make.leading.top.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func setupEpisodeImageView() {
