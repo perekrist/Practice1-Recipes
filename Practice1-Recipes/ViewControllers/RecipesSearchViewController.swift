@@ -116,6 +116,7 @@ extension RecipesSearchViewController {
         tableView.register(RecipeCell.self, forCellReuseIdentifier: String(describing: RecipeCell.self))
         tableView.dataSource = viewModel.dataSource
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
     }
     
     func searchRecipes(with searchText: String) {
