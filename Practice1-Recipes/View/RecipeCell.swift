@@ -70,12 +70,13 @@ extension RecipeCell {
         recipeImageView.snp.makeConstraints { make in
             make.height.equalTo(112)
             make.width.equalTo(204)
-            make.right.equalTo(self).offset(50)
+            make.right.equalTo(self).offset(40)
             make.trailing.equalTo(self.snp.trailingMargin)
             make.top.equalTo(self.snp.topMargin)
             make.bottom.equalTo(self.snp.bottomMargin)
         }
-        recipeImageView.layer.cornerRadius = 15.0
+        recipeImageView.layer.cornerRadius = 10
+        recipeImageView.layer.masksToBounds = true
 
         let stackView = UIStackView(arrangedSubviews: [recipeNameLabel, recipeDescriptionLabel, recipeLastUpdatedLabel])
         stackView.spacing = 4
