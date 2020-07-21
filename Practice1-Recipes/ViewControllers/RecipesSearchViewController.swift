@@ -101,7 +101,7 @@ extension RecipesSearchViewController {
         navigationItem.searchController = searchController
         title = "Recipes"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort by", style: .plain, target: self, action: #selector(sortRecipes))
-
+        navigationController!.navigationBar.tintColor = .black
     }
 
     private func setupSearchBar() {
