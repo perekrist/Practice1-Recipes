@@ -24,12 +24,14 @@ class RecipeView: UIScrollView {
     private lazy var similarLabel = UILabel()
     private lazy var difficultyImageView = UIImageView()
     private lazy var difficultyStackView = UIStackView()
+    private lazy var similarRecipesTableView = UITableView()
+        
+    var recipe: RecipeDescription?
     
     override func didMoveToSuperview() {
-        setupEpisodeImageView()
+        setupRecipeImageView()
         setupLabels()
         setupLayout()
-        
     }
     
 }
@@ -39,12 +41,12 @@ extension RecipeView {
     func setup(with viewModel: RecipeViewModel) {
         self.viewModel = viewModel
         viewModel.getRecipeDetails(uuid: viewModel.uuid) {
-            let recipe = viewModel.recipe
+            self.recipe = viewModel.recipe
             
-            self.recipeNameLabel.text = recipe?.recipe.name
-            self.recipeDescriptionLabel.text = recipe?.recipe.description
-            self.recipeInstructionLabel.text = viewModel.filterHTMLLineBreaks(text: recipe?.recipe.instructions ?? "")
-                        
+            self.recipeNameLabel.text = self.recipe?.recipe.name
+            self.recipeDescriptionLabel.text = self.recipe?.recipe.description
+            self.recipeInstructionLabel.text = viewModel.filterHTMLLineBreaks(text: self.recipe?.recipe.instructions ?? "")
+            
             for i in 0 ..< (self.viewModel?.recipeImageURLs.count)! {
                 if i < 4 {
                     let image = self.viewModel?.recipeImageURLs[i]
@@ -54,20 +56,27 @@ extension RecipeView {
             
             self.difficultyStackView.axis = .horizontal
             for i in 0 ..< 5 {
-                if(i < (recipe?.recipe.difficulty)!) {
+                if(i < (self.recipe?.recipe.difficulty)!) {
                     self.difficultyImageView.image = #imageLiteral(resourceName: "star")
                 } else {
                     self.difficultyImageView.image = #imageLiteral(resourceName: "star").alpha(0.3)
                 }
                 self.difficultyStackView.addSubview(self.difficultyImageView)
             }
+            
+            
+            
+//            self.similarRecipesTableView.text = ""
+//            for i in 0 ..< (self.recipe?.recipe.similar!.count)! {
+//                self.similarRecipesTableView.text! += (self.recipe?.recipe.similar![i].name)! + "\n"
+//            }
         }
         setNeedsLayout()
     }
     
     private func setupLayout() {
-        
-        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyStackView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel]
+         
+        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyStackView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel, similarRecipesTableView]
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
         self.addSubview(stackView)
@@ -77,10 +86,10 @@ extension RecipeView {
         }
     }
     
-    private func setupEpisodeImageView() {
+    private func setupRecipeImageView() {
         recipeImageView.snp.makeConstraints { (make) in
-            make.height.equalTo(300)
-            make.width.equalTo(400) //not fixed
+            make.height.equalTo(270)
+            make.width.equalTo(UIScreen.main.bounds.width)
         }
     }
     
@@ -133,9 +142,6 @@ extension RecipeView {
             $0.height.greaterThanOrEqualTo(20)
         }
         
-        
     }
     
 }
-
-
