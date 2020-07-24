@@ -77,7 +77,11 @@ extension RecipeView {
         self.addSubview(stackView)
         
         stackView.snp.makeConstraints { (make) in
-            make.leading.top.trailing.bottom.equalToSuperview()
+            make.width.equalTo(UIScreen.main.bounds.width - 48)
+            make.trailing.equalTo(self.snp.trailingMargin).offset(-10)
+            make.leading.equalTo(self.snp.leadingMargin).offset(10)
+            make.top.equalTo(self.snp.topMargin).offset(-10)
+            make.bottom.equalTo(self.snp.bottomMargin)
         }
     }
     
