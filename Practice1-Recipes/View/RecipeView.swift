@@ -74,6 +74,7 @@ extension RecipeView {
         let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyStackView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel, similarRecipesTableView]
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
+        stackView.spacing = 10
         self.addSubview(stackView)
         
         stackView.snp.makeConstraints { (make) in
@@ -88,7 +89,6 @@ extension RecipeView {
     private func setupRecipeImageView() {
         recipeImageView.snp.makeConstraints { (make) in
             make.height.equalTo(270)
-            make.width.equalTo(UIScreen.main.bounds.width)
         }
     }
     
