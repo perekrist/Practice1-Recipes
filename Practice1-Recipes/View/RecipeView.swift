@@ -11,7 +11,7 @@ import UIKit
 import Auk
 
 class RecipeView: UIScrollView {
-        
+    
     var viewModel: RecipeViewModel?
     
     private lazy var recipeImageView = UIScrollView()
@@ -23,9 +23,9 @@ class RecipeView: UIScrollView {
     private lazy var instructionLabel = UILabel()
     private lazy var similarLabel = UILabel()
     private lazy var difficultyImageView = UIImageView()
-    private lazy var difficultyStackView = UIStackView()
+    private lazy var difficultyView = UIView()
     lazy var similarRecipesTableView = UITableView()
-        
+    
     var recipe: RecipeDescription?
     
     override func didMoveToSuperview() {
@@ -53,18 +53,26 @@ extension RecipeView {
                     self.recipeImageView.auk.show(url: image!)
                 }
             }
-                        
+            
+            self.difficultyView = UIView(frame: CGRect(x: 0, y: 0, width: (self.recipe?.recipe.difficulty)! * (20 + 5), height: 20))
+            
             var difficulty: [UIView] = []
             for i in 0 ..< 5 {
                 if(i < (self.recipe?.recipe.difficulty)!) {
-                    self.difficultyImageView.image = #imageLiteral(resourceName: "star")
+                    let item = UIImageView(frame: CGRect(origin: CGPoint(x: (20 + 5) * CGFloat(i),
+                                                                         y: 0), size: CGSize(width: 20, height: 20)))
+                    item.image = #imageLiteral(resourceName: "star")
+                    difficulty.append(item)
+                    self.difficultyView.addSubview(item)
                 } else {
-                    self.difficultyImageView.image = #imageLiteral(resourceName: "star").alpha(0.3)
+                    let item = UIImageView(frame: CGRect(origin: CGPoint(x: (20 + 5) * CGFloat(i),
+                                                                         y: 0), size: CGSize(width: 20, height: 20)))
+                    item.image = #imageLiteral(resourceName: "star").alpha(0.3)
+                    difficulty.append(item)
+                    self.difficultyView.addSubview(item)
                 }
-                difficulty.append(self.difficultyImageView)
             }
-            self.difficultyStackView = UIStackView(arrangedSubviews: difficulty)
-            self.difficultyStackView.axis = .horizontal
+            
             
         }
         setNeedsLayout()
@@ -72,7 +80,7 @@ extension RecipeView {
     
     private func setupLayout() {
         
-        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyStackView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel, similarRecipesTableView]
+        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel, similarRecipesTableView]
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
         stackView.spacing = 10
