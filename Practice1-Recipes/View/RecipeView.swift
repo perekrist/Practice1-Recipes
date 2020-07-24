@@ -25,11 +25,11 @@ class RecipeView: UIScrollView {
     private lazy var difficultyImageView = UIImageView()
     private lazy var difficultyStackView = UIStackView()
     lazy var similarRecipesTableView = UITableView()
-    
+        
     var recipe: RecipeDescription?
     
     override func didMoveToSuperview() {
-        setupRecipeImageView()
+        setupImageViews()
         setupLabels()
         setupLayout()
     }
@@ -53,9 +53,8 @@ extension RecipeView {
                     self.recipeImageView.auk.show(url: image!)
                 }
             }
-            
-            self.difficultyStackView.axis = .horizontal
-            var difficulty: [UIImageView] = []
+                        
+            var difficulty: [UIView] = []
             for i in 0 ..< 5 {
                 if(i < (self.recipe?.recipe.difficulty)!) {
                     self.difficultyImageView.image = #imageLiteral(resourceName: "star")
@@ -65,6 +64,8 @@ extension RecipeView {
                 difficulty.append(self.difficultyImageView)
             }
             self.difficultyStackView = UIStackView(arrangedSubviews: difficulty)
+            self.difficultyStackView.axis = .horizontal
+            
         }
         setNeedsLayout()
     }
@@ -86,7 +87,7 @@ extension RecipeView {
         }
     }
     
-    private func setupRecipeImageView() {
+    private func setupImageViews() {
         recipeImageView.snp.makeConstraints { (make) in
             make.height.equalTo(270)
         }
