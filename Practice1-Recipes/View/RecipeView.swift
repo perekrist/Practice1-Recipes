@@ -12,6 +12,8 @@ import Auk
 
 class RecipeView: UIScrollView {
     
+    let cellReuseIdentifier = "cell"
+    
     var viewModel: RecipeViewModel?
     
     private lazy var recipeImageView = UIScrollView()
@@ -24,8 +26,8 @@ class RecipeView: UIScrollView {
     private lazy var similarLabel = UILabel()
     private lazy var difficultyImageView = UIImageView()
     private lazy var difficultyStackView = UIStackView()
-    private lazy var similarRecipesTableView = UITableView()
-        
+    lazy var similarRecipesTableView = UITableView()
+    
     var recipe: RecipeDescription?
     
     override func didMoveToSuperview() {
@@ -55,27 +57,22 @@ extension RecipeView {
             }
             
             self.difficultyStackView.axis = .horizontal
+            var difficulty: [UIImageView] = []
             for i in 0 ..< 5 {
                 if(i < (self.recipe?.recipe.difficulty)!) {
                     self.difficultyImageView.image = #imageLiteral(resourceName: "star")
                 } else {
                     self.difficultyImageView.image = #imageLiteral(resourceName: "star").alpha(0.3)
                 }
-                self.difficultyStackView.addSubview(self.difficultyImageView)
+                difficulty.append(self.difficultyImageView)
             }
-            
-            
-            
-//            self.similarRecipesTableView.text = ""
-//            for i in 0 ..< (self.recipe?.recipe.similar!.count)! {
-//                self.similarRecipesTableView.text! += (self.recipe?.recipe.similar![i].name)! + "\n"
-//            }
+            self.difficultyStackView = UIStackView(arrangedSubviews: difficulty)
         }
         setNeedsLayout()
     }
     
     private func setupLayout() {
-         
+        
         let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyStackView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel, similarRecipesTableView]
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
