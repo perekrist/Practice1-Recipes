@@ -85,7 +85,7 @@ extension RecipeCell {
         stackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(self.snp.leadingMargin)
-            make.trailing.equalTo(recipeImageView.snp.leading).offset(12)
+            make.trailing.equalTo(recipeImageView.snp.leading).offset(-20)
         }
     }
 

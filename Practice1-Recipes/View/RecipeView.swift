@@ -11,9 +11,7 @@ import UIKit
 import Auk
 
 class RecipeView: UIScrollView {
-    
-    let cellReuseIdentifier = "cell"
-    
+        
     var viewModel: RecipeViewModel?
     
     private lazy var recipeImageView = UIScrollView()
