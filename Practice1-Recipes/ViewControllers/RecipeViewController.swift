@@ -27,6 +27,12 @@ class RecipeViewController: UIViewController {
         initialSetup()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if(self.isMovingFromParent) {
+            viewModel.goBack()
+        }
+    }
+    
 }
 
 extension RecipeViewController {

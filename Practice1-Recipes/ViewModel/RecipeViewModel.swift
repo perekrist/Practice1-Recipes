@@ -31,6 +31,10 @@ class RecipeViewModel {
     init(uuid: String) {
         self.uuid = uuid
     }
+    
+    func goBack() {
+        coordinatorDelegate?.finish()
+    }
 
 }
 
