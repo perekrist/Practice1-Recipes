@@ -25,6 +25,8 @@ class RecipeView: UIScrollView {
     private lazy var difficultyView = UIView()
     lazy var similarRecipesTableView = UITableView()
     
+    let recognizer = UITapGestureRecognizer()
+    
     var recipe: RecipeDescription?
     
     override func didMoveToSuperview() {
@@ -73,13 +75,15 @@ extension RecipeView {
                 }
             }
             
+            self.recognizer.addTarget(self, action: #selector(self.handleTapGesture(_: )))
+            self.recipeImageView.addGestureRecognizer(self.recognizer)
             
         }
         setNeedsLayout()
     }
     
     private func setupLayout() {
-//        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyView, instructionLabel, recipeInstructionLabel, similarLabel, similarRecipesTableView]
+        //        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyView, instructionLabel, recipeInstructionLabel, similarLabel, similarRecipesTableView]
         
         let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, instructionLabel, recipeInstructionLabel]
         
@@ -158,6 +162,18 @@ extension RecipeView {
         similarRecipesTableView.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(20)
         }
+    }
+    
+    @objc func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
+        
+        let imageUrl = (self.viewModel?.recipeImageURLs[self.recipeImageView.auk.currentPageIndex!])!
+        for i in 0 ..< (self.viewModel?.recipeImageURLs.count)! {
+            if i < 4 {
+                print(self.viewModel?.recipeImageURLs[i])
+            }
+        }
+        
+        
     }
     
 }

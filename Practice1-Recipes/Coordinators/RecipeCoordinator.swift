@@ -10,9 +10,11 @@ import UIKit
 
 class RecipeCoordinator: Coordinator {
     
+    
     let rootViewController: UINavigationController
         
     weak var delegate: RecipesSearchCoordinatorDelegate?
+    
     
     let recipeId: String
     
@@ -35,5 +37,20 @@ class RecipeCoordinator: Coordinator {
     
     override func finish() {
         delegate?.didFinish(from: self)
+    }
+}
+
+extension RecipeCoordinator {
+    func goToRecipeImages(recipeImageURLs: [String], index: Int) {
+        let recipeImagesCoordinator = RecipeImagesCoordinator(rootViewController: self.rootViewController, recipeImageURLs: recipeImageURLs, index: index)
+        recipeImagesCoordinator.delegate = self
+        addChildCoordinator(recipeImagesCoordinator)
+        recipeImagesCoordinator.start()
+    }
+}
+
+extension RecipeCoordinator:  RecipeCoordinatorDelegate{
+    func didFinish(from coordinator: RecipeImagesCoordinator) {
+        removeChildCoordinator(coordinator)
     }
 }
