@@ -18,7 +18,6 @@ class RecipeView: UIScrollView {
     private lazy var recipeNameLabel = UILabel()
     private lazy var recipeDescriptionLabel = UILabel()
     private lazy var recipeInstructionLabel = UILabel()
-    private lazy var recipeSimilarLabel = UILabel()
     private lazy var difficultyLabel = UILabel()
     private lazy var instructionLabel = UILabel()
     private lazy var similarLabel = UILabel()
@@ -80,7 +79,10 @@ extension RecipeView {
     }
     
     private func setupLayout() {
-        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel, similarRecipesTableView]
+//        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyView, instructionLabel, recipeInstructionLabel, similarLabel, similarRecipesTableView]
+        
+        let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, instructionLabel, recipeInstructionLabel]
+        
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
         stackView.spacing = 10
