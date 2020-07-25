@@ -10,7 +10,6 @@ import UIKit
 
 class RecipeCoordinator: Coordinator {
     
-    
     let rootViewController: UINavigationController
         
     weak var delegate: RecipesSearchCoordinatorDelegate?

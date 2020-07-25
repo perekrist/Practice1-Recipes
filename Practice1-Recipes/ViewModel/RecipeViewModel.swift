@@ -56,5 +56,9 @@ extension RecipeViewModel {
         }
         return text
     }
+    
+    func goToRecipeImages(recipeImageURLs: [String], index: Int) {
+        coordinatorDelegate?.goToRecipeImages(recipeImageURLs: recipeImageURLs, index: index)
+    }
 
 }

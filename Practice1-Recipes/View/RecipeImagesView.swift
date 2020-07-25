@@ -25,7 +25,8 @@ class RecipeImagesView: UIView {
 extension RecipeImagesView {
     
     func setup(with viewModel: RecipeImagesViewModel) {
-        for i in 0 ..< (self.viewModel?.recipeImageURLs?.count)! {
+        self.viewModel = viewModel
+        for i in 0 ..< (self.viewModel?.recipeImageURLs?.count ?? 0) {
             if i < 4 {
                 let image = self.viewModel?.recipeImageURLs![i]
                 self.recipeImageView.auk.show(url: image!)
@@ -47,7 +48,6 @@ extension RecipeImagesView {
         self.addSubview(stackView)
         
         stackView.snp.makeConstraints {
-            $0.width.equalTo(UIScreen.main.bounds.width - 48)
             $0.trailing.equalTo(self.snp.trailingMargin)
             $0.leading.equalTo(self.snp.leadingMargin)
             $0.top.equalTo(self.snp.topMargin)
@@ -57,8 +57,8 @@ extension RecipeImagesView {
     
     private func setupButton() {
         downloadButton = UIButton(type: .system)
-        downloadButton.setTitle("Save", for: .normal)
-        downloadButton.tintColor = .white
+        downloadButton.setTitle("Download current image", for: .normal)
+        downloadButton.tintColor = .blue
         downloadButton.addTarget(self, action: #selector(downloadImage), for: .touchUpInside)
     }
     

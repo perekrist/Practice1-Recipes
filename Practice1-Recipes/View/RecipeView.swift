@@ -14,7 +14,7 @@ class RecipeView: UIScrollView {
     
     var viewModel: RecipeViewModel?
     
-    private lazy var recipeImageView = UIScrollView()
+    var recipeImageView = UIScrollView()
     private lazy var recipeNameLabel = UILabel()
     private lazy var recipeDescriptionLabel = UILabel()
     private lazy var recipeInstructionLabel = UILabel()
@@ -23,7 +23,7 @@ class RecipeView: UIScrollView {
     private lazy var similarLabel = UILabel()
     private lazy var difficultyImageView = UIImageView()
     private lazy var difficultyView = UIView()
-    lazy var similarRecipesTableView = UITableView()
+    var similarRecipesTableView = UITableView()
     
     let recognizer = UITapGestureRecognizer()
     
@@ -165,15 +165,14 @@ extension RecipeView {
     }
     
     @objc func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
-        
-        let imageUrl = (self.viewModel?.recipeImageURLs[self.recipeImageView.auk.currentPageIndex!])!
+        var imagesUrl: [String] = []
         for i in 0 ..< (self.viewModel?.recipeImageURLs.count)! {
             if i < 4 {
-                print(self.viewModel?.recipeImageURLs[i])
+                imagesUrl.append((self.viewModel?.recipeImageURLs[i])!)
             }
         }
         
-        
+        self.viewModel?.goToRecipeImages(recipeImageURLs: imagesUrl, index: self.recipeImageView.auk.currentPageIndex!)
     }
     
 }
