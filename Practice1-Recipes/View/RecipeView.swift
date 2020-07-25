@@ -14,7 +14,7 @@ class RecipeView: UIScrollView {
     
     var viewModel: RecipeViewModel?
     
-    var recipeImageView = UIScrollView()
+    private lazy var recipeImageView = UIScrollView()
     private lazy var recipeNameLabel = UILabel()
     private lazy var recipeDescriptionLabel = UILabel()
     private lazy var recipeInstructionLabel = UILabel()

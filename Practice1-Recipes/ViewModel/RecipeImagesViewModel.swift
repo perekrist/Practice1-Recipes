@@ -25,7 +25,7 @@ class RecipeImagesViewModel {
     }
     
     func downloadImage(index: Int) {
-        print("downloadImage")
+        print(recipeImageURLs![index])
     }
 
 }

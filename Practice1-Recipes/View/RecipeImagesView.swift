@@ -18,6 +18,7 @@ class RecipeImagesView: UIView {
         
     override func didMoveToSuperview() {
         setupButton()
+        setupImagesView()
         setupLayout()
     }
 }
@@ -51,7 +52,6 @@ extension RecipeImagesView {
             $0.trailing.equalTo(self.snp.trailingMargin)
             $0.leading.equalTo(self.snp.leadingMargin)
             $0.top.equalTo(self.snp.topMargin)
-            $0.bottom.equalTo(self.snp.bottomMargin)
         }
     }
     
@@ -60,6 +60,13 @@ extension RecipeImagesView {
         downloadButton.setTitle("Download current image", for: .normal)
         downloadButton.tintColor = .blue
         downloadButton.addTarget(self, action: #selector(downloadImage), for: .touchUpInside)
+        downloadButton.titleLabel?.font = downloadButton.titleLabel?.font.withSize(30)
+    }
+    
+    private func setupImagesView() {
+        recipeImageView.snp.makeConstraints {
+            $0.height.equalTo(UIScreen.main.bounds.width)
+        }
     }
     
     @objc private func downloadImage() {
