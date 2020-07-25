@@ -70,7 +70,7 @@ extension RecipesSearchViewModel {
     }
     
     func goToRecipeDetails(index: Int) {
-        coordinatorDelegate?.goToRecipeDetails(recipeId: self.recipes[index].uuid)
+        coordinatorDelegate?.goToRecipeDetails(recipeId: (self.dataSource?.models[index].uuid)!)
     }
     
 }

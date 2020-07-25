@@ -46,8 +46,9 @@ extension RecipeViewController {
     }
     
     private func getRecipeDetails(uuid: String) {
-        viewModel.getRecipeDetails(uuid: uuid) { [weak self] in
-        }
+        viewModel.getRecipeDetails(uuid: uuid, completion: {
+            
+        })
     }
     
     private func setupLayout() {
