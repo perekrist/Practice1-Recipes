@@ -61,12 +61,8 @@ extension RecipesSearchViewController {
             && searchController.searchBar.text?.isEmpty == false ? Sizes.footerHeight : 0
     }
 
-    // MARK: Navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipe = viewModel.recipe(for: indexPath)
-        let recipeViewModel  = RecipeViewModel(uuid: recipe.uuid)
-        let recipeController = RecipeViewController(viewModel: recipeViewModel)
-        navigationController?.pushViewController(recipeController, animated: true)
+        viewModel.goToRecipeDetails(index: indexPath.row)
     }
 }
 

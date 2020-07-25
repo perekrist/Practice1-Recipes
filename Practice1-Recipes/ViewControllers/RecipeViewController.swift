@@ -72,7 +72,10 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+        let recipe = viewModel.recipe?.recipe.similar![indexPath.row]
+        let recipeViewModel  = RecipeViewModel(uuid: recipe!.uuid)
+        let recipeController = RecipeViewController(viewModel: recipeViewModel)
+        navigationController?.pushViewController(recipeController, animated: true)
     }
     
 }

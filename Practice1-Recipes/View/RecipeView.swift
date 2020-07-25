@@ -31,6 +31,7 @@ class RecipeView: UIScrollView {
     override func didMoveToSuperview() {
         setupImageViews()
         setupLabels()
+        setupTable()
         setupLayout()
     }
     
@@ -79,25 +80,24 @@ extension RecipeView {
     }
     
     private func setupLayout() {
-        
         let arrangedSubviews = [recipeImageView, recipeNameLabel, recipeDescriptionLabel, difficultyLabel, difficultyView, instructionLabel, recipeInstructionLabel, similarLabel, recipeSimilarLabel, similarRecipesTableView]
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
         stackView.spacing = 10
         self.addSubview(stackView)
         
-        stackView.snp.makeConstraints { (make) in
-            make.width.equalTo(UIScreen.main.bounds.width - 48)
-            make.trailing.equalTo(self.snp.trailingMargin).offset(-10)
-            make.leading.equalTo(self.snp.leadingMargin).offset(10)
-            make.top.equalTo(self.snp.topMargin).offset(-10)
-            make.bottom.equalTo(self.snp.bottomMargin)
+        stackView.snp.makeConstraints {
+            $0.width.equalTo(UIScreen.main.bounds.width - 48)
+            $0.trailing.equalTo(self.snp.trailingMargin).offset(-10)
+            $0.leading.equalTo(self.snp.leadingMargin).offset(10)
+            $0.top.equalTo(self.snp.topMargin).offset(-10)
+            $0.bottom.equalTo(self.snp.bottomMargin)
         }
     }
     
     private func setupImageViews() {
-        recipeImageView.snp.makeConstraints { (make) in
-            make.height.equalTo(270)
+        recipeImageView.snp.makeConstraints {
+            $0.height.equalTo(270)
         }
     }
     
@@ -150,6 +150,12 @@ extension RecipeView {
             $0.height.greaterThanOrEqualTo(20)
         }
         
+    }
+    
+    private func setupTable() {
+        similarRecipesTableView.snp.makeConstraints {
+            $0.height.greaterThanOrEqualTo(20)
+        }
     }
     
 }

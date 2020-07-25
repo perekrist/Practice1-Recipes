@@ -15,6 +15,7 @@ class RecipesSearchViewModel {
     var dataSource: TableViewDataSource<Recipe, RecipeCell>?
     var numberOfRows = 0
     
+    var coordinatorDelegate: RecipesSearchCoordinator?
     private let networkingService = NetworkingService()
     
 }
@@ -66,6 +67,10 @@ extension RecipesSearchViewModel {
     private func recipesDidLoad(_ recipes: [Recipe]) {
         self.recipes = recipes
         dataSource = .make(for: recipes)
+    }
+    
+    func goToRecipeDetails(index: Int) {
+        coordinatorDelegate?.goToRecipeDetails(recipeId: self.recipes[index].uuid)
     }
     
 }

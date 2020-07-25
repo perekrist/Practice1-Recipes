@@ -10,6 +10,7 @@ import Foundation
 
 class RecipeViewModel {
 
+    weak var coordinatorDelegate: RecipeCoordinator?
     private let networkingService = NetworkingService()
 
     var recipe: RecipeDescription?
