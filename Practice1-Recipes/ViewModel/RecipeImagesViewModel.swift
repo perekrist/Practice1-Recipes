@@ -7,14 +7,16 @@
 //
 
 import Foundation
+import UIKit
+import Kingfisher
 
-class RecipeImagesViewModel {
-
+class RecipeImagesViewModel: NSObject {
+    
     weak var coordinatorDelegate: RecipeImagesCoordinator?
-
+    
     var recipeImageURLs: [String]?
     var index: Int?
-
+    
     init(recipeImageURLs: [String], index: Int) {
         self.recipeImageURLs = recipeImageURLs
         self.index = index
@@ -25,7 +27,14 @@ class RecipeImagesViewModel {
     }
     
     func downloadImage(index: Int) {
-        print(recipeImageURLs![index])
+        let url = URL(string: recipeImageURLs![index])
+        let imageData = try! Data(contentsOf: url!)
+        let image = UIImage(data: imageData)
+        UIImageWriteToSavedPhotosAlbum(image!, self, #selector(saveError), nil)
     }
-
+    
+    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        print("Save finished!")
+    }
+    
 }
